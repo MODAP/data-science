@@ -23,7 +23,7 @@ class GeThing(Resource):
         datestr = time.strftime('%Y%m%d')
         hrrr_value_list = []
 
-        coord_str = '-lon '+ reqname.split("=")[0] + ' ' + 2reqname.split("=")[1]
+        coord_str = '-lon '+ reqname.split("=")[0] + ' ' + reqname.split("=")[1]
 
         hrrr_tmp = "/usr/bin/wgrib2 %s -match '%s' %s" % ('hrrr.grib2', 'TMP', coord_str)
         hrrr_value = (str(subprocess.check_output(hrrr_tmp, shell=True))[:-3])
